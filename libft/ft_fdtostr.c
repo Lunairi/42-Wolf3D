@@ -19,7 +19,7 @@ char	*ft_fdtostr(int fd)
 	char			*output;
 	char			input[BUF_SIZE + 1];
 	unsigned int	memory;
-	
+
 	memory = 0;
 	temp = (char*)malloc(sizeof(*output) * (memory + 1));
 	output = (char*)malloc(sizeof(*output) * (memory + 1));

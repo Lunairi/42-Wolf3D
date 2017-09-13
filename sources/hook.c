@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   hook.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlu <mizukori250@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,28 +12,50 @@
 
 #include "wolf3d.h"
 
-static int		expose_event(t_map *map)
+int		release_event(int key, t_map *map)
 {
-	draw_reload(map);
+	if (key == 123)
+	{
+		map->left = 0;
+	}
+	else if (key == 124)
+	{
+		map->right = 0;
+	}
+	else if (key == 125)
+	{
+		map->down = 0;
+	}
+	else if (key == 126)
+	{
+		map->up = 0;
+	}
 	return (0);
 }
 
-int				main(void)
+int		hook_event(int key, t_map *map)
 {
-	t_map		*map;
-
-	if ((map = ft_memalloc(sizeof(t_map))) == NULL)
+	if (key == 53)
 	{
-		ft_putstr("Instruction unclear, eggplant stuck in blender.");
-		return (0);
+		mlx_destroy_window(map->mlx, map->win);
+		exit(EXIT_SUCCESS);
 	}
-	init_map(map);
-	initialize_draw(map);
-	start_draw(map);
-	mlx_expose_hook(map->win, expose_event, map);
-	mlx_hook(map->win, 2, (1L << 0), hook_event, map);
-	mlx_hook(map->win, 3, (1L << 0), release_event, map);
-	mlx_loop_hook(map->mlx, loop_event, map);
-	mlx_loop(map->mlx);
+	else if (key == 14)
+	{
+		map->eggplant += 1;
+		draw_reload(map);
+	}
+	else if (key == 123)
+		map->left = 1;
+	else if (key == 124)
+		map->right = 1;
+	else if (key == 125)
+		map->down = 1;
+	else if (key == 126)
+		map->up = 1;
+	else if (key == 36 && map->game == 2)
+		next_level(map);
+	else if (key == 49)
+		check_pos(map);
 	return (0);
 }

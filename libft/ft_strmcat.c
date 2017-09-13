@@ -16,7 +16,7 @@ void	ft_strmcat(char *s1, char *s2, unsigned int *size, unsigned int buf)
 {
 	unsigned int l;
 	unsigned int i;
-	
+
 	i = 0;
 	if (((*size) > buf) && ((*size) % buf == 0))
 		if (s1[*size - buf])

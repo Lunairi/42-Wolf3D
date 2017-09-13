@@ -25,34 +25,7 @@
 # include "mlx.h"
 # include "libft.h"
 
-
-# define M1 "888888888884464464644464"
-# define M2 "800000000084000000000004"
-# define M3 "803300000884000000000006"
-# define M4 "800300000000000000000006"
-# define M5 "803300000884000000000004"
-# define M6 "800000000084000006660646"
-# define M7 "888000898884444446000006"
-# define M8 "777000777080000084040606"
-# define M9 "770000007808000000000006"
-# define M10 "700000000000000000000004"
-# define M11 "700000000000000006060606"
-# define M12 "770000007808080806460666"
-# define M13 "777000777884068403330333"
-# define M14 "222000222464006063000003"
-# define M15 "220000022400000043000003"
-# define M16 "200000002400000043000003"
-# define M17 "100000001444446063300033"
-# define M18 "200000002221222660050505"
-# define M19 "220000022200022050500055"
-# define M20 "200000000000002505050505"
-# define M21 "100000000000000000000005"
-# define M22 "200000000000002505050505"
-# define M23 "220000022200022050500055"
-# define M24 "222212222221222555555555"
-
-
-typedef struct s_vars
+typedef struct	s_vars
 {
 	int			x;
 	int			y;
@@ -60,33 +33,35 @@ typedef struct s_vars
 	int			i;
 	int			j;
 	int			k;
-	int m;
+	int			m;
 }				t_vars;
 
-typedef struct s_map
+typedef struct	s_map
 {
-	void 		*xpm;
+	int			map_type;
+	int			level;
+	void		*xpm;
 	char		med[24][25];
-	void	*go;
-	int 	go_x;
-	int 	go_y;
+	void		*go;
+	int			go_x;
+	int			go_y;
 	void		*flr;
-	int 		flr_move;
-	int 		*flr_addr;
-	int 	game;
-	int flr_s;
-	int flr_e;
-	int flr_b;
-	int flr_x;
-	int flr_y;
-	double 		xpm_scale;
-	int 		xpm_move;
-	int 		*xpm_addr;
-	int 		xpm_s;
-	int 		xpm_e;
-	int 		xpm_b;
-	int 		xpm_x;
-	int 		xpm_y;
+	int			flr_move;
+	int			*flr_addr;
+	int			game;
+	int			flr_s;
+	int			flr_e;
+	int			flr_b;
+	int			flr_x;
+	int			flr_y;
+	double		xpm_scale;
+	int			xpm_move;
+	int			*xpm_addr;
+	int			xpm_s;
+	int			xpm_e;
+	int			xpm_b;
+	int			xpm_x;
+	int			xpm_y;
 	char		*map;
 	void		*mlx;
 	void		*win;
@@ -144,8 +119,51 @@ typedef struct s_map
 	int			eggplant;
 }				t_map;
 
-void	draw_reload(t_map *map);
-void	start_draw(t_map *map);
-void	init_map(t_map *map);
-void	initialize_med(t_map *map);
+/*
+** raycast.c
+*/
+void			start_draw(t_map *map);
+
+/*
+** texture.c
+*/
+void			draw_line(int x, t_map *map);
+
+/*
+** init.c
+*/
+void			initialize_draw(t_map *map);
+void			init_map(t_map *map);
+
+/*
+** hook.c
+*/
+int				release_event(int key, t_map *map);
+int				hook_event(int key, t_map *map);
+
+/*
+** draw.c
+*/
+void			draw_reload(t_map *map);
+void			draw_bar(int x, t_map *map);
+
+/*
+** map.c
+*/
+void			initialize_maze(t_map *map);
+
+/*
+** utility.c
+*/
+int				darken(int img, double distance);
+void			check_pos(t_map *map);
+void			game_over(t_map *map);
+void			next_level(t_map *map);
+void			coord(t_map *map);
+
+/*
+** event.c
+*/
+int				loop_event(t_map *map);
+
 #endif

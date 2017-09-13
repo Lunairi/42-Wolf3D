@@ -15,6 +15,14 @@
 NAME	= wolf3d
 
 SRC		= ./sources/main.c \
+			./sources/map.c \
+			./sources/utility.c \
+			./sources/event.c \
+			./sources/draw.c \
+			./sources/hook.c \
+			./sources/init.c \
+			./sources/texture.c \
+			./sources/raycast.c
 
 OBJ		= $(patsubst src/%.c,obj/%.o,$(SRC))
 .SILENT:
