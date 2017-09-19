@@ -43,6 +43,8 @@ void	coord(t_map *map)
 
 void	game_over(t_map *map)
 {
+	if (map->free == 1)
+		return ;
 	if (map->game == 1)
 	{
 		map->go = mlx_xpm_file_to_image(map->mlx, "./xpm/skycast.xpm",

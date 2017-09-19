@@ -94,7 +94,9 @@ void	start_draw(t_map *map)
 		map->line_height = (int)(600 / map->wall_dist);
 		map->draw_start = -(map->line_height) / 1.5 + 600 / 2;
 		map->draw_end = map->line_height / 1.5 + 600 / 2;
-		if (map->hit == 2)
+		if (map->free == 1)
+			draw_free(v.x, map);
+		else if (map->hit == 2)
 			draw_bar(v.x, map);
 		else
 			draw_line(v.x, map);

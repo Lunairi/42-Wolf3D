@@ -28,6 +28,26 @@ void	init_map(t_map *map)
 	map->end = 0;
 	map->game = 0;
 	map->level = 1;
+	map->intro = 0;
+	map->free = 0;
+	initialize_maze(map);
+}
+
+void	init_level(t_map *map)
+{
+	map->pos_x = 22.0;
+	map->pos_y = 11.5;
+	map->dir_x = -1;
+	map->dir_y = 0;
+	map->plane_x = 0;
+	map->plane_y = 0.66;
+	map->time = 0;
+	map->old_time = 0;
+	map->eggplant = 1;
+	map->xpm_move = 0;
+	map->xpm_scale = -150;
+	map->game = 0;
+	initialize_maze(map);
 }
 
 void	initialize_draw(t_map *map)

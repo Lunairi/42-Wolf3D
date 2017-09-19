@@ -66,7 +66,7 @@ void	move_down(t_map *map)
 			if (map->xpm_scale < 0)
 				map->xpm_scale += 0.5;
 		}
-		if (map->xpm_scale == 0 || map->xpm_scale == -300)
+		if ((map->xpm_scale == 0 || map->xpm_scale == -300) && map->free != 1)
 			map->game = 1;
 		if ((map->med[(int)(map->pos_x - map->dir_x
 				* 0.075)][(int)(map->pos_y)]) == '0')
@@ -91,7 +91,7 @@ void	move_up(t_map *map)
 			if (map->xpm_scale > -300)
 				map->xpm_scale -= 0.5;
 		}
-		if (map->xpm_scale == 0 || map->xpm_scale == -300)
+		if ((map->xpm_scale == 0 || map->xpm_scale == -300) && map->free != 1)
 			map->game = 1;
 		if ((map->med[(int)(map->pos_x + map->dir_x
 				* 0.075)][(int)(map->pos_y)]) == '0')

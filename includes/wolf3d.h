@@ -38,6 +38,8 @@ typedef struct	s_vars
 
 typedef struct	s_map
 {
+	int			free;
+	int			intro;
 	int			map_type;
 	int			level;
 	void		*xpm;
@@ -120,6 +122,12 @@ typedef struct	s_map
 }				t_map;
 
 /*
+** main.c
+*/
+void			display_free(void);
+void			display_menu(void);
+
+/*
 ** raycast.c
 */
 void			start_draw(t_map *map);
@@ -134,6 +142,7 @@ void			draw_line(int x, t_map *map);
 */
 void			initialize_draw(t_map *map);
 void			init_map(t_map *map);
+void			init_level(t_map *map);
 
 /*
 ** hook.c
@@ -146,6 +155,7 @@ int				hook_event(int key, t_map *map);
 */
 void			draw_reload(t_map *map);
 void			draw_bar(int x, t_map *map);
+void			draw_free(int x, t_map *map);
 
 /*
 ** map.c
