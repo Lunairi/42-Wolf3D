@@ -1,3 +1,3 @@
 # 42-Wolf3D
 
-Project for 42 university, added a gamemode where it lets you move around in the sky, and a free roam for those with motion sickness
+My third graphic proejct for 42. This is a raycast understanding, done in a game called wolf3d. A big jump between fractol and wolf3d occurred where my understanding and manipulation of memory, MLX library and graphic concepts increase. I went as far as to manipulate XPM images and being able to texture in the code. I even parsed a simple game menu, adding a gamemode where it lets you move around in the sky, and a free roam for those with motion sickness from the game mode. More polished than my previous projects and showing more better understanding of graphics and the C programming language.
